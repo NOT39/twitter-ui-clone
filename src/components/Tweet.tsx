@@ -1,9 +1,14 @@
 import { ArrowsClockwise, ChatCircle, Heart } from 'phosphor-react'
+import { Link } from 'react-router-dom'
 import './Tweet.css'
 
-export const Tweet = () => {
+interface TweetProps {
+  content: string
+}
+
+export const Tweet = ({content}: TweetProps) => {
   return (
-    <a href='#' className="tweet">
+    <Link to="/status" className="tweet">
       <img src="https://github.com/not39.png" alt="not" />
 
       <div className="tweet-content">
@@ -12,25 +17,25 @@ export const Tweet = () => {
           <span>@not39</span>
         </div>
 
-        <p>fadfasfdfas</p>
+        <p>{content}</p>
 
         <div className="tweet-content-footer">
-          <button type='button'>
+          <button type="button">
             <ChatCircle />
             20
           </button>
 
-          <button type='button'>
+          <button type="button">
             <ArrowsClockwise />
             20
           </button>
 
-          <button type='button'>
+          <button type="button">
             <Heart />
             20
           </button>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
